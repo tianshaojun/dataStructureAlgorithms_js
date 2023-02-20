@@ -56,6 +56,77 @@
 
 
     //迭代方法 every,some,filter,map,foreach,reduce
+    // let arr = [10, 11, 12, 13];
+
+    // let res = arr.every(item => item > 10)
+    // let res = arr.some(item => item > 12)
+    // let res = arr.filter(item => item > 12)
+    // let res = arr.map(item => item + "kervin")
+    // let res = arr.reduce((item1, item2) => item1 + item2)
+    // console.log(res)
+
+    // arr.forEach((item, index) => {
+    //     console.log(item, index)
+    // })
+
+
+    // console.log(arr)
+
+    // let ite = arr[Symbol.iterator]()
+    // console.log(ite.next())
+    // console.log(ite.next())
+    // console.log(ite.next())
+    // console.log(ite.next())
+    // console.log(ite.next())
+
+
+    // for (let i of arr) {
+    //     console.log(i)
+    // }
+
+    // console.log(arr.entries())
+
+    // for (let i of arr.values()) {
+    //     console.log(i)
+    // }
+
+    //Array.from
+    // function test() {
+    //     console.log(Array.from(arguments))
+    // }
+
+    // test(1, 2, 3)
+
+
+    //搜索 indexOf,lastIndexOf
+    //find findIndex findLast findLastIndex
+    //includes
+
+    // let arr = [10, 11, 12, 13, 9];
+    // console.log(arr.indexOf(10))
+    // console.log(arr.includes(15))
+
+    // let res = arr.find(item => item > 10)
+    // let res = arr.findIndex(item => item > 10)
+    // let res = arr.findLast(item => item > 10)
+    // let res = arr.findLastIndex(item => item > 10)
+    // console.log(res)
+
+
+    let arr = [
+        [98, 99, 100],
+        [100, 100, 99],
+        [80, 80, 69]
+    ]
+
+    for (let i = 0; i < arr.length; i++) {
+        console.log(`第${i + 1}个人的成绩`)
+
+        for (let j = 0; j < arr[i].length; j++) {
+            console.log(arr[i][j])
+        }
+    }
+
 </script>
 
 </html>
