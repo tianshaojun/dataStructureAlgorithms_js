@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+<script>
+    class Queue {
+        // constructor() {
+        //     this.#items = []
+        // }
+        #items = [];
+
+        //出队
+        dequeue() {
+            return this.#items.shift();
+        }
+
+        //入队
+        enqueue(data) {
+            this.#items.push(data);
+        }
+
+        //队首元素
+        front() {
+            //return this.#items[0];
+            return this.#items.at(0);
+        }
+
+        isEmpty() {
+            return this.#items.length === 0;
+        }
+
+        clear() {
+            this.#items = [];
+        }
+
+        size() {
+            return this.#items.length;
+        }
+
+        toString() {
+            return this.#items.join(" ");
+        }
+    }
+
+    let queue = new Queue();
+</script>
+
+</html>
