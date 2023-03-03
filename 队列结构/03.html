@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+<script>
+    class Queue {
+        #items = {};
+        #lowCount = 0; //队首元素的索引
+        #count = 0; //数据索引
+
+        //出队
+        dequeue() {
+            if (this.isEmpty()) {
+                return undefined;
+            }
+            let res = this.#items[this.#lowCount];
+            delete this.#items[this.#lowCount];
+            this.#lowCount++;
+            return res;
+        }
+
+        //入队
+        enqueue(data) {
+            this.#items[this.#count] = data;
+            this.#count++;
+        }
+
+        //队首元素
+        front() {
+            return this.#items[this.#lowCount];
+        }
+
+        isEmpty() {
+            return this.size() === 0;
+        }
+
+        clear() {
+            this.#items = {};
+            this.#count = 0;
+            this.#lowCount = 0;
+        }
+
+        size() {
+            return this.#count - this.#lowCount;
+        }
+
+        toString() {
+            let str = "";
+            for (let i = this.#lowCount; i < this.#count; i++) {
+                str += `${this.#items[i]} `
+            }
+            return str;
+        }
+    }
+
+    //击鼓传花
+    function game(list, num) {
+
+        let queue = new Queue();
+
+        for (let i = 0; i < list.length; i++) {
+            queue.enqueue(list[i]);
+        }
+
+        while (queue.size() > 1) {
+
+            for (let i = 0; i < num; i++) {
+                queue.enqueue(queue.dequeue());
+            }
+
+            queue.dequeue(); //重要
+            // console.log(queue.dequeue(), '淘汰了');
+        }
+
+
+        return queue.dequeue();
+    }
+
+    let winner = game(['kervin', 'xiaoming', 'tiechui', 'gangdaner', 'guludunzi'], 7);
+    console.log(winner, '胜利了');
+</script>
+
+</html>
